@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,9 +19,9 @@ function App() {
         <p>
           I am a React Student!
         </p>
-
+{/* useState use to counting */}
+        <Counter></Counter>
         <ul>
-
           {
             nayoks.map(nayok => <li> {nayok} </li>)
           }
@@ -47,6 +48,23 @@ function App() {
   );
 }
 
+// ===============useState Declaration
+function Counter (){
+  const [count, setCount] = useState(10);
+  // const handelIncrease = () => {
+  //   // const newCount = count + 1;
+  //   setCount(count + 1);
+  // }
+  return (
+    <div>
+      <h1>Count: {count} </h1>
+      <button onMouseMove = {() =>  setCount(count - 1)}>Descries</button>
+      <button onClick = {() =>  setCount(count + 1)} >Increase</button>
+    </div>
+  )
+}
+
+// ===============Product 
 function Product (props){
   const productStyle = {
     border: '1px solid gray',
@@ -65,7 +83,7 @@ function Product (props){
     </div>
   );
 }
-
+// ===============Person 
 function Person (props){
   return (
     <div style={{border: '2px solid red', width: '400px', margin: '20px'}}>
